@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.12)
+project("Advent of Code")
+
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
+
+file(GLOB_RECURSE SRCS ./*.cpp)
+foreach(N0 ${SRCS})
+	if(N0 MATCHES "Day ([1-9]|1[0-9]|2[0-5])")
+		string(REPLACE "/" ";" N1 ${N0})
+		list(GET N1 -1 N2)
+		string(REPLACE "." ";" N3 ${N2})
+		list(GET N3 0 N4)
+		string(REPLACE " " "" N5 ${N4})
+		add_executable(${N5} ${N0})
+	endif()
+endforeach()

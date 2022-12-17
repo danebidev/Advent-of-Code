@@ -11,7 +11,6 @@ int main() {
 	auto start = chrono::steady_clock::now();
 
 	ifstream in("input.txt");
-	ofstream out("output.txt");
 	string line;
 
 	int xS{}, yS{}, xE{}, yE{};
@@ -67,7 +66,7 @@ int main() {
 	}
 
 	auto end = chrono::steady_clock::now();
-	cout << endl << "Time:\n" 
+	cout << "Time:\n" 
 		<< chrono::duration_cast<chrono::microseconds>(end - start).count() << " us\n" 
 		<< chrono::duration_cast<chrono::milliseconds>(end - start).count() << " ms";
 

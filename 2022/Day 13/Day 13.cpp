@@ -21,8 +21,9 @@ int compare(element left, element right);
 
 int main() {
 
+	auto start = chrono::steady_clock::now();
+
 	ifstream in("input.txt");
-	ofstream out("output.txt");
 	string line;
 
 	int sum = 0;
@@ -89,7 +90,12 @@ int main() {
 	}
 
 	cout << "The sum of indices of the packets in order is: " << sum << endl;
-	cout << "The decoder key for the distress signal is: " << ans;
+	cout << "The decoder key for the distress signal is: " << ans << endl;
+
+	auto end = chrono::steady_clock::now();
+	cout << "Time:\n"
+		<< chrono::duration_cast<chrono::microseconds>(end - start).count() << " us\n"
+		<< chrono::duration_cast<chrono::milliseconds>(end - start).count() << " ms";
 
 }
 

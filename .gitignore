@@ -10,5 +10,5 @@ input.txt
 output.txt
 
 CMakeSettings.json
-CMakeLists.txt
+!CMakeLists.txt
 out/
