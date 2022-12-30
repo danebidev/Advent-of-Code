@@ -30,6 +30,8 @@ vector<int> beacons;
 
 int main() {
 
+	auto start = chrono::steady_clock::now();
+
 	ifstream in("input.txt");
 	string line;
 
@@ -110,7 +112,12 @@ int main() {
 		}
 	}
 
-	cout << "The distress beacon is at X: " << x << " Y: " << y << " and it's tuning frequency is " << x * 4000000ll + y;
+	cout << "The distress beacon is at X: " << x << " Y: " << y << " and it's tuning frequency is " << x * 4000000ll + y << "\n";
+
+	auto end = chrono::steady_clock::now();
+	cout << "Time:\n"
+		<< chrono::duration_cast<chrono::microseconds>(end - start).count() << " us\n"
+		<< chrono::duration_cast<chrono::milliseconds>(end - start).count() << " ms";
 
 }
 
