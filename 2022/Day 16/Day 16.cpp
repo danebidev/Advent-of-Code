@@ -39,7 +39,6 @@ int main() {
 		int i = 0;
 		int pos;
 		while ((pos = v.find(", ") != v.npos)) {
-			
 			va[i] = v.substr(0, pos + 1);
 			v.erase(0, pos + 3);
 			i++;
@@ -57,7 +56,7 @@ int main() {
 		}
 	}
 
-	cout << "1: " << maxPressure(25, "AA", 0, 0) << "\n";
+	cout << "1: " << maxPressure(29, "AA", 0, 0) << "\n";
 
 }
 
