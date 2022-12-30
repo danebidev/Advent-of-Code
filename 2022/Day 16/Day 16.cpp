@@ -13,7 +13,7 @@ struct valve {
 	valve(string n, int f, vector<string> valves) : name(n), flow(f), connectsTo(valves) {}
 };
 
-void dijkstra(valve);
+void bfs(valve);
 int maxPressure(int, string, int, int);
 
 map<string, valve*> valves;
@@ -50,7 +50,7 @@ int main() {
 	}
 
 	for(auto v : valves) {
-		dijkstra(*v.second);
+		bfs(*v.second);
 		for(auto valve : valves) {
 			if(valve.second->flow == 0 || valve.first == v.first) distances[v.first].erase(valve.first);
 		}
@@ -79,7 +79,7 @@ int maxPressure(int time, string curValve, int pressPerMin, int curPress) {
 
 }
 
-void dijkstra(valve valve) {
+void bfs(valve valve) {
 	queue<pair<int, string>> q;
 	q.push(make_pair(0, valve.name));
 	distances[valve.name][valve.name] = 0;
